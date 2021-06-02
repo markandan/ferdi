@@ -274,7 +274,7 @@ export default class ServicesStore extends Store {
   }
 
   @computed get isTodosServiceAdded() {
-    return this.allDisplayed.find(service => service.recipe.id === TODOS_RECIPE_ID && service.isEnabled) || null;
+    return this.allDisplayed.find(service => service.recipe.id === TODOS_RECIPE_ID && service.isEnabled) || false;
   }
 
   @computed get isTodosServiceActive() {
