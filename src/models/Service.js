@@ -4,7 +4,8 @@ import { webContents } from '@electron/remote';
 import normalizeUrl from 'normalize-url';
 import path from 'path';
 
-import { TODOS_RECIPE_ID, todosStore } from '../features/todos';
+import { todosStore } from '../features/todos';
+import { TODOS_RECIPES_ID } from '../config';
 import { isValidExternalURL } from '../helpers/url-helpers';
 import UserAgent from './UserAgent';
 
@@ -185,7 +186,7 @@ export default class Service {
   }
 
   get webview() {
-    if (this.recipe.id === TODOS_RECIPE_ID) {
+    if (this.recipe.id === TODOS_RECIPES_ID[window.ferdi.stores.settings.all.app.predefinedTodoServer]) {
       return todosStore.webview;
     }
 

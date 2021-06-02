@@ -10,7 +10,7 @@ import injectSheet from 'react-jss';
 import ServiceView from './ServiceView';
 import Appear from '../../ui/effects/Appear';
 import serverlessLogin from '../../../helpers/serverless-helpers';
-import { TODOS_RECIPE_ID } from '../../../features/todos';
+import { TODOS_RECIPES_ID } from '../../../config';
 
 const messages = defineMessages({
   welcome: {
@@ -171,7 +171,7 @@ export default @injectSheet(styles) @inject('actions') @observer class Services 
             </div>
           </Appear>
         )}
-        {services.filter(service => service.recipe.id !== TODOS_RECIPE_ID).map(service => (
+        {services.filter(service => service.recipe.id !== TODOS_RECIPES_ID[window.ferdi.stores.settings.all.app.predefinedTodoServer]).map(service => (
           <ServiceView
             key={service.id}
             service={service}

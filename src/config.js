@@ -61,6 +61,10 @@ export const SEARCH_ENGINE_URLS = {
   [SEARCH_ENGINE_DDG]: ({ searchTerm }) => `https://duckduckgo.com/?q=${searchTerm}`,
 };
 
+export const TODOS_RECIPES_ID = {
+  'https://todoist.com/app': 'todoist',
+};
+
 export const TODO_APPS = {
   'https://todoist.com/app': 'Todoist',
   'https://app.franztodos.com': 'Franz Todo',
