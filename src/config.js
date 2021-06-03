@@ -63,6 +63,11 @@ export const SEARCH_ENGINE_URLS = {
 
 export const TODOS_RECIPES_ID = {
   'https://todoist.com/app': 'todoist',
+  'https://app.franztodos.com': 'franz-todos',
+  'https://ticktick.com/signin': 'ticktick',
+  'https://todo.microsoft.com/?app#': 'mstodo',
+  'https://habitica.com/login': 'habitica',
+  'https://desktop.any.do/': 'anydo',
 };
 
 export const TODO_APPS = {
