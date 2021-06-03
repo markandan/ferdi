@@ -8,6 +8,7 @@ import localStorage from 'mobx-localstorage';
 
 import { todoActions } from './actions';
 import { CUSTOM_TODO_SERVICE, TODO_SERVICE_RECIPE_IDS } from '../../config';
+import { isValidExternalURL } from '../../helpers/url-helpers';
 import { FeatureStore } from '../utils/FeatureStore';
 import { createReactions } from '../../stores/lib/Reaction';
 import { createActionBindings } from '../utils/ActionBinding';
@@ -20,19 +21,6 @@ import { state as delayAppState } from '../delayApp';
 import UserAgent from '../../models/UserAgent';
 
 const debug = require('debug')('Ferdi:feature:todos:store');
-
-// NOTE: https://stackoverflow.com/questions/5717093/check-if-a-javascript-string-is-a-url
-function validURL(str) {
-  let url;
-
-  try {
-    url = new URL(str);
-  } catch (_) {
-    return false;
-  }
-
-  return url.protocol === 'http:' || url.protocol === 'https:';
-}
 
 export default class TodoStore extends FeatureStore {
   @observable stores = null;
@@ -89,7 +77,7 @@ export default class TodoStore extends FeatureStore {
   }
 
   @computed get isTodoUrlValid() {
-    return !this.isUsingPredefinedTodoServer || validURL(this.todoUrl);
+    return !this.isUsingPredefinedTodoServer || isValidExternalURL(this.todoUrl);
   }
 
   @computed get todoRecipeId() {
