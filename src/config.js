@@ -61,10 +61,12 @@ export const SEARCH_ENGINE_URLS = {
   [SEARCH_ENGINE_DDG]: ({ searchTerm }) => `https://duckduckgo.com/?q=${searchTerm}`,
 };
 
-export const TODOS_RECIPES_ID = {
+export const CUSTOM_TODO_SERVICE = 'isUsingCustomTodoService';
+
+export const TODO_SERVICE_RECIPE_IDS = {
   'https://todoist.com/app': 'todoist',
   'https://app.franztodos.com': 'franz-todos',
-  'https://ticktick.com/signin': 'ticktick',
+  'https://ticktick.com/signin': 'TickTick',
   'https://todo.microsoft.com/?app#': 'mstodo',
   'https://habitica.com/login': 'habitica',
   'https://desktop.any.do/': 'anydo',
@@ -80,8 +82,12 @@ export const TODO_APPS = {
   'https://www.rememberthemilk.com/login/': 'Remember The Milk',
   'https://desktop.any.do/': 'Any.do',
   'https://tasks.google.com/embed/?origin=https%3A%2F%2Fcalendar.google.com&fullWidth=1': 'Google Tasks',
-  isUsingCustomTodoService: 'Other service',
+  [CUSTOM_TODO_SERVICE]: 'Other service',
 };
+
+export const DEFAULT_TODO_SERVICE = 'https://app.franztodos.com';
+export const DEFAULT_TODO_RECIPE_ID = TODO_SERVICE_RECIPE_IDS[DEFAULT_TODO_SERVICE];
+export const DEFAULT_TODO_SERVICE_NAME = TODO_APPS[DEFAULT_TODO_SERVICE];
 
 export const SIDEBAR_WIDTH = {
   35: 'Extremely slim sidebar',
@@ -130,7 +136,7 @@ export const DEFAULT_APP_SETTINGS = {
 
   // Ferdi specific options
   server: LIVE_API,
-  predefinedTodoServer: 'https://app.franztodos.com',
+  predefinedTodoServer: DEFAULT_TODO_SERVICE,
   autohideMenuBar: false,
   lockingFeatureEnabled: false,
   locked: false,

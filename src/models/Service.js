@@ -5,7 +5,6 @@ import normalizeUrl from 'normalize-url';
 import path from 'path';
 
 import { todosStore } from '../features/todos';
-import { TODOS_RECIPES_ID } from '../config';
 import { isValidExternalURL } from '../helpers/url-helpers';
 import UserAgent from './UserAgent';
 
@@ -185,8 +184,12 @@ export default class Service {
     };
   }
 
+  @computed get isTodosService() {
+    return this.recipe.id === todosStore.todoRecipeId;
+  }
+
   get webview() {
-    if (this.recipe.id === TODOS_RECIPES_ID[window.ferdi.stores.settings.all.app.predefinedTodoServer]) {
+    if (this.isTodosService) {
       return todosStore.webview;
     }
 
@@ -243,7 +246,6 @@ export default class Service {
   @computed get partition() {
     return this.recipe.partition || `persist:service-${this.id}`;
   }
-
 
   initializeWebViewEvents({ handleIPCMessage, openWindow, stores }) {
     const webviewWebContents = webContents.fromId(this.webview.getWebContentsId());
