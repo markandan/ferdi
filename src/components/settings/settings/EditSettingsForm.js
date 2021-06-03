@@ -389,11 +389,9 @@ export default @observer class EditSettingsForm extends Component {
                         )}
                       </div>
                     )}
+                    <Hr />
                   </>
                 )}
-
-
-                <Hr />
 
                 <Toggle field={form.$('scheduledDNDEnabled')} />
                 {scheduledDNDEnabled && (

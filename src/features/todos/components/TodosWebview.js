@@ -61,6 +61,10 @@ const styles = theme => ({
     position: 'absolute',
     right: 0,
     zIndex: 0,
+    borderLeftWidth: 0,
+  },
+  hidden: {
+    borderLeftWidth: 0,
   },
 });
 
@@ -188,6 +192,8 @@ class TodosWebview extends Component {
         className={classnames({
           [classes.root]: true,
           [classes.isTodosServiceActive]: isTodosServiceActive,
+          'todos__todos-panel--expanded': isTodosServiceActive,
+          [classes.hidden]: !isVisible,
         })}
         style={{ width: displayedWidth }}
         onMouseUp={() => this.stopResize()}
