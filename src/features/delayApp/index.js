@@ -1,13 +1,11 @@
 import { autorun, observable, reaction } from 'mobx';
 import moment from 'moment';
 import DelayAppComponent from './Component';
-import { config as configurations } from './constants';
+import { config } from './constants';
 import { DEFAULT_FEATURES_CONFIG } from '../../config';
 import { getUserWorkspacesRequest } from '../workspaces/api';
 
 const debug = require('debug')('Ferdi:feature:delayApp');
-
-const config = configurations;
 
 export const state = observable({
   isDelayAppScreenVisible: DEFAULT_FEATURES_CONFIG.needToWaitToProceed,
