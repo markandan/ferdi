@@ -7,7 +7,7 @@ import { getUserWorkspacesRequest } from '../workspaces/api';
 
 const debug = require('debug')('Ferdi:feature:delayApp');
 
-export const config = configurations;
+const config = configurations;
 
 export const state = observable({
   isDelayAppScreenVisible: DEFAULT_FEATURES_CONFIG.needToWaitToProceed,

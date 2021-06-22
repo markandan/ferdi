@@ -8,7 +8,12 @@ import localStorage from 'mobx-localstorage';
 
 import { todoActions } from './actions';
 import {
-  CUSTOM_TODO_SERVICE, TODO_SERVICE_RECIPE_IDS, DEFAULT_TODOS_WIDTH, TODOS_MIN_WIDTH, DEFAULT_TODOS_VISIBLE, DEFAULT_IS_FEATURE_ENABLED_BY_USER,
+  CUSTOM_TODO_SERVICE,
+  TODO_SERVICE_RECIPE_IDS,
+  DEFAULT_TODOS_WIDTH,
+  TODOS_MIN_WIDTH,
+  DEFAULT_TODOS_VISIBLE,
+  DEFAULT_IS_FEATURE_ENABLED_BY_USER,
 } from '../../config';
 import { isValidExternalURL } from '../../helpers/url-helpers';
 import { FeatureStore } from '../utils/FeatureStore';
